@@ -1,0 +1,39 @@
+{
+  "name": "pubnub-stream",
+  "version": "0.1.0",
+  "description": "Thin stream abstraction on top of pubnub",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Colingo/pubnub-stream.git",
+  "main": "index",
+  "homepage": "https://github.com/Colingo/pubnub-stream",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "browserify": "browser.js",
+  "bugs": {
+    "url": "https://github.com/Colingo/pubnub-stream/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {
+    "write-stream": "~0.4.3",
+    "read-stream": "~0.4.8",
+    "pubnub": "~3.1.9",
+    "request": "~2.11.4"
+  },
+  "devDependencies": {
+    "tap": "~0.3.1",
+    "colors": "~0.6.0-1"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Colingo/pubnub-stream/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {
+    "test": "tap --stderr --tap ./test"
+  }
+}
