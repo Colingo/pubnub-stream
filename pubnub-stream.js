@@ -1,6 +1,5 @@
 var ReadStream = require("read-stream")
     , WriteStream = require("write-stream")
-    , colors = require("colors")
 
 module.exports = pubnub
 
