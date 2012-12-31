@@ -1,0 +1,25 @@
+{
+  "name": "{{example}}",
+  "version": "0.1.0",
+  "description": "{{example}}",
+  "author": "{{author}}",
+  "main": "index",
+  "dependencies": {
+    "write-stream": "~0.4.3",
+    "read-stream": "~0.5.2",
+    "pubnub-browserify": "~3.4.0"
+  },
+  "devDependencies": {
+    "browserify-server": "~2.1.4",
+    "wr": "~1.2.1",
+    "live-reload": "~0.2.0"
+  },
+  "scripts": {
+    "build": "browserify-server --bundle=index.js -o ./static/bundle.js",
+    "server": "browserify-server --server=./static --port=8081",
+    "watch": "wr 'npm run build' .",
+    "live-reload": "live-reload",
+    "open": "google-chrome localhost:8080",
+    "all": "npm run server & npm run live-reload & npm run watch"
+  }
+}

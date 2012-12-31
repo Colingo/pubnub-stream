@@ -1,14 +1,18 @@
-var pubnub = require("..")({
-        "publish_key": "INSERT"
-        , "subscribe_key": "INSERT"
-    })
-    , publish = pubnub.createWriteStream
-    , subscribe = pubnub.createReadStream
-    , WriteStream = require("write-stream")
-    , assert = require("assert")
+var PUBNUB = require("pubnub")
+var WriteStream = require("write-stream")
+var assert = require("assert")
+var setTimeout = require("timers").setTimeout
+var clearTimeout = require("timers").clearTimeout
 
-    , channel = "TEST:pubnub-stream:packets"
-    , count = 0
+var publish = require("../publish")
+var subscribe = require("../subscribe")
+
+var client = PUBNUB.init({
+    "subscribe_key": "sub-c-3c5b6d70-5380-11e2-891b-12313f022c90"
+    , "publish_key": "pub-c-4b8c3ece-9fb5-4e22-b637-f272a52a0892"
+})
+var channel = "TEST:pubnub-stream:packets"
+var count = 0
 
 loop()
 
@@ -26,8 +30,8 @@ function loop() {
 function program(number, id, callback) {
     console.log("program", id)
 
-    var subscribed = subscribe(channel)
-        , published = publish(channel)
+    var subscribed = subscribe(client, channel)
+        , published = publish(client, channel)
         , ended = false
         , got = {
 
@@ -37,13 +41,13 @@ function program(number, id, callback) {
         .pipe(WriteStream(function (data) {
             var count = data.count
 
-            // console.log("got", id, data.id, data.count)
+            console.log("got", id, data.id, data.count)
 
             assert.equal(got[count], undefined)
 
             got[count] = true
 
-            // console.log("count", Object.keys(got).length)
+            console.log("count", Object.keys(got).length)
             if (Object.keys(got).length === number) {
                 end()
             }

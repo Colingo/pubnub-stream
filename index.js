@@ -1,10 +1,5 @@
-var PubNub = require("./pubnub-server")
-    , PubNubStream = require("./pubnub-stream")
-
-module.exports = pubnub
-
-function pubnub(options) {
-    return PubNubStream(function () {
-        return PubNub(options)
-    })
+module.exports = {
+    subscribe: require("./subscribe")
+    , publish: require("./publish")
+    , history: require("./history")
 }
