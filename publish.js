@@ -1,10 +1,11 @@
-var WriteStream = require("write-stream")
+var EndStream = require("end-stream")
+var Queue = require("push-queue")
 
 module.exports = publish
 
 function publish(client, channel) {
     var push = Queue(sendItem)
-        , stream = WriteStream(push)
+    var stream = EndStream(push)
 
     return stream
 
@@ -22,26 +23,6 @@ function publish(client, channel) {
             }
 
             callback()
-        }
-    }
-}
-
-function Queue(action) {
-    var buffer = []
-
-    return push
-
-    function push(data) {
-        buffer.push(data)
-        if (buffer.length === 1) {
-            action(buffer[0], next)
-        }
-    }
-
-    function next() {
-        buffer.shift()
-        if (buffer.length > 0) {
-            action(buffer[0], next)
         }
     }
 }

@@ -4,7 +4,7 @@ module.exports = subscribe
 
 function subscribe(client, channel, options) {
     var queue = ReadStream()
-        , stream = queue.stream
+    var stream = queue.stream
 
     options = options || {}
 
