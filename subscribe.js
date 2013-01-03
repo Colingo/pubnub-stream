@@ -1,4 +1,8 @@
 var ReadStream = require("read-stream")
+var channels = ["void"]
+var streams = {
+    "void": []
+}
 
 module.exports = subscribe
 
@@ -11,9 +15,21 @@ function subscribe(client, channel, options) {
     client.subscribe({
         channel: channel
         , restore: options.restore || true
-        , connect: options.connect
-        , disconnect: options.disconnect
-        , reconnect: options.reconnect
+        , connect: function () {
+            stream.emit("connect")
+
+            options.connect && options.connect()
+        }
+        , disconnect: function () {
+            stream.emit("disconnect")
+
+            options.disconnect && options.connect()
+        }
+        , reconnect: function () {
+            stream.emit("reconnect")
+
+            options.reconnect && options.reconnect()
+        }
         , callback: queue.push
         , error: function (info) {
             var message = info[1] || "pubsub subscribe failed"

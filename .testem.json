@@ -1,0 +1,9 @@
+{
+    "src_files": [
+        "./**/*.js"
+    ],
+    "before_tests": "npm run build",
+    "on_exit": "rm test/bundle.js",
+    "test_page": "test/index.html",
+    "launch_in_dev": ["phantomjs"]
+}

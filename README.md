@@ -37,10 +37,7 @@ published.write({ some: "data" })
 
  - Almost no sensible error handling
 
- - Doesn't handle the subscribe timeout at all
-
  - packets are not ordered
-
 
 ## Installation
 
