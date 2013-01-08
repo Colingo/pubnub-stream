@@ -11,6 +11,8 @@ function duplex(client, channel, options) {
 
     read.write = write.write
     read.end = write.end
+    read.writable = true
+    read.readable = true
 
     reemit(write, read, ["error", "drain", "finish", "pipe"])
 
