@@ -2,12 +2,12 @@ var test = require("tape")
 var uuid = require("node-uuid")
 var after = require("after")
 
-var connect = require("./connect")
-var throughput = require("./throughput")
+var connect = require("./util/connect")
+var throughput = require("./util/throughput")
 
 var duplex = require("../duplex")
 
-var channel = "pubnubstreamtestsubscribe" + uuid()
+var channel = "pubnub stream test duplex" + uuid()
 
 test("can subscribe to channel", function (assert) {
     var client = connect()

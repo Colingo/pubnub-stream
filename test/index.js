@@ -1,1 +1,2 @@
-require("./subscribe")
+require("./duplex")
+require("./publish")

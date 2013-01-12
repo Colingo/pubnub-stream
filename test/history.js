@@ -9,6 +9,7 @@ var history = require("../history")
 
 var channel = "pubnubstreamtesthistory" + uuid()
 
+// not tested yet
 test("can read from history", function (assert) {
     var client = connect()
     var stream = publish(client, channel)
