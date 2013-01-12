@@ -2,6 +2,8 @@
 
 Thin stream abstraction on top of pubnub
 
+[![browser support](http://ci.testling.com/Colingo/pubnub-stream.png)](http://ci.testling.com/Colingo/pubnub-stream)
+
 ## Example
 
 ``` js
