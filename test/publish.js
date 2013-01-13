@@ -61,7 +61,6 @@ test("can publish multiple messages", function (assert) {
 })
 
 test("can send really large message", function (assert) {
-    assert.ok(true, "forces testem to play nice")
     var message = largeMessage(1800)
     var client = connect()
     var read = subscribe(client, channel)
