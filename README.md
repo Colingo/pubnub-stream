@@ -26,6 +26,17 @@ subscribed
 published.write({ some: "data" })
 ```
 
+## Api surface
+
+ - publish
+ - subscribe
+ - duplex
+
+## Work in progress
+
+ - history
+ - presence
+
 ## Known issues
 
  - Sometimes you get the same published message multiple times

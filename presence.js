@@ -11,6 +11,8 @@ var EXPIRY_SUFFIX = "-expmodel"
 module.exports = presence
 
 function presence(client, channel, options) {
+    throw new Error("not implemented / tested")
+
     var model = ExpiryModel(options)
 
     var presenceStream = subscribe(client, channel + PRESENCE_SUFFIX)
