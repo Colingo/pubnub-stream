@@ -60,8 +60,7 @@ function subscribe(client, channel, options) {
             queue.push(JSON.parse(message))
         }
         , error: function (info) {
-            var message = info[1] || "pubsub subscribe failed"
-            stream.emit("error", Error(message))
+            stream.emit("error", Error("pubsub subscribe failed"))
         }
     })
 

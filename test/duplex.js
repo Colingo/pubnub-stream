@@ -20,19 +20,19 @@ test("can subscribe to channel", function (assert) {
     })
 })
 
-test("can subscribe to two channels", function (assert) {
-    var client = connect()
-    var done = after(2, function () { assert.end() })
+testConnections(2)
+testConnections(10)
+testConnections(50)
 
-    throughput(duplex(client, channel + "1"), assert, done)
-    throughput(duplex(client, channel + "2"), assert, done)
-})
+function testConnections(n) {
+    var id = uuid()
 
-test("can subscribe to 10 channels", function (assert) {
-    var client = connect()
-    var done = after(10, function () { assert.end() })
+    test("can subscribe to " + n + " channels", function (assert) {
+        var client = connect()
+        var done = after(n, function () { assert.end() })
 
-    for (var i = 3; i < 13; i++) {
-        throughput(duplex(client, channel + i), assert, done)
-    }
-})
+        for (var i = 0; i < n; i++) {
+            throughput(duplex(client, channel + id + i), assert, done)
+        }
+    })
+}
