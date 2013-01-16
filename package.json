@@ -1,6 +1,6 @@
 {
   "name": "pubnub-stream",
-  "version": "1.0.0-beta3",
+  "version": "1.0.0",
   "description": "Thin stream abstraction on top of pubnub",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
